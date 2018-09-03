@@ -1,0 +1,67 @@
+﻿<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Welcome file</title>
+  <link rel="stylesheet" href="https://stackedit.io/style.css" />
+</head>
+
+<body class="stackedit">
+  <div class="stackedit__html">
+    <h3 id="the-http-conditional-getresponse-interaction">2. The HTTP CONDITIONAL GET/response interaction</h3>
+    <h4 id="inspect-the-contents-of-the-first-http-get-request-from-your-browser-to-the-server.-do-you-see-an-“if-modified-since”-line-in-the-http-get">8.
+      Inspect the contents of the first HTTP GET request from your browser to the server. Do you see an “IF-MODIFIED-SINCE”
+      line in the HTTP GET?</h4>
+    <p>Esta linha não existe no primeiro GET.</p>
+    <h4 id="inspect-the-contents-of-the-server-response.-did-the-server-explicitly-return-the-contents-of-the-file-how-can-you-tell">9.
+      Inspect the contents of the server response. Did the server explicitly return the contents of the file? How can you
+      tell?</h4>
+    <p>Sim, pois é possível expandir o item Line-based text data: text/html (10 lines) e obter o conteúdo da página.</p>
+    <h4 id="now-inspect-the-contents-of-the-second-http-get-request-from-your-browser-to-the-server.-do-you-see-an-“if-modified-since”-line-in-the-http-get-if-so-what-information-follows-the-“if-modified-since”-header">10.
+      Now inspect the contents of the second HTTP GET request from your browser to the server. Do you see an “IF-MODIFIED-SINCE:”
+      line in the HTTP GET? If so, what information follows the “IF-MODIFIED-SINCE:” header?</h4>
+    <p>Sim, o contéudo deste item é: Mon, 03 Sep 2018 05:59:01 GMT.</p>
+    <h4 id="what-is-the-http-status-code-and-phrase-returned-from-the-server-in-response-to-this-second-http-get-did-the-server-explicitly-return-the-contents-of-the-file-explain.">11.
+      What is the HTTP status code and phrase returned from the server in response to this second HTTP GET? Did the server
+      explicitly return the contents of the file? Explain.</h4>
+    <p>O status retornado é o 304 - Not Modified. O servidor não retornou o conteúdo novamente. Este fato ocorre pois o conteúdo
+      da página não foi modificado desde o último carregamento. Isso faz com que seja desnecessário reenviar os conteúdos
+      novamente, uma vez que o browser já está exibindo o conteúdo presente no servidor. Isso otimiza e descongestiona a
+      rede, uma vez que conteúdos redundantes não são reenviados desnecessariamente.</p>
+    <h3 id="retrieving-long-documents">3. Retrieving Long Documents</h3>
+    <h4 id="how-many-http-get-request-messages-did-your-browser-send-which-packet-number-in-the-trace-contains-the-get-message-for-the-bill-of-rights">12.
+      How many HTTP GET request messages did your browser send? Which packet number in the trace contains the GET message
+      for the Bill of Rights?</h4>
+    <p>Apenas 1 GET foi enviado. O pacote 215, conforme item [Request in frame: 215]</p>
+    <h4 id="which-packet-number-in-the-trace-contains-the-status-code-and-phrase-associated-with-the-response-to-the-http-get-request">13.
+      Which packet number in the trace contains the status code and phrase associated with the response to the HTTP GET request?</h4>
+    <p>O pacote 215, conforme item [Request in frame: 215]</p>
+    <h4 id="what-is-the-status-code-and-phrase-in-the-response">14. What is the status code and phrase in the response?</h4>
+    <p>200 - OK, conforme itens Status Code: 200 e Response Phrase: OK.</p>
+    <h4 id="how-many-data-containing-tcp-segments-were-needed-to-carry-the-single-http-response-and-the-text-of-the-bill-of-rights">15.
+      How many data-containing TCP segments were needed to carry the single HTTP response and the text of the Bill of Rights?</h4>
+    <p>4 segmentos foram necessários, conforme item Segment count.</p>
+    <h3 id="html-documents-with-embedded-objects">4. HTML Documents with Embedded Objects</h3>
+    <h4 id="how-many-http-get-request-messages-did-your-browser-send-to-which-internet-addresses-were-these-get-requests-sent">16.
+      How many HTTP GET request messages did your browser send? To which Internet addresses were these GET requests sent?</h4>
+    <p>4 requisições GET foram enviadas. O endereço foi 10.216.8.100</p>
+    <h4 id="can-you-tell-whether-your-browser-downloaded-the-two-images-serially-or-whether-they-were-downloaded-from-the-two-web-sites-in-parallel-explain.">17.
+      Can you tell whether your browser downloaded the two images serially, or whether they were downloaded from the two
+      web sites in parallel? Explain.</h4>
+    <p>Analisando os tempos, é possível perceber que os downloads foram em paralelo, pois o download da primeira imagem foi
+      solicitado no tempo 1.999151 e finalizado no tempo 2.146213. Enquanto isso, o download da segunda imagem foi solicitado
+      no tempo 2.026699 e finalizado no tempo 3.428390, pois a segunda imagem mudou de localização e por isso foi feito um
+      quarto GET para o real endereço da imagem, uma vez que o terceiro retornou a nova localização desta.</p>
+    <h3 id="http-authentication">5 HTTP Authentication</h3>
+    <h4 id="what-is-the-server’s-response-status-code-and-phrase-in-response-to-the-initial-http-get-message-from-your-browser">18.
+      What is the server’s response (status code and phrase) in response to the initial HTTP GET message from your browser?</h4>
+    <p>401 - Unauthorized, conforme os itens Status Code e Status Response.</p>
+    <h4 id="when-your-browser’s-sends-the-http-get-message-for-the-second-time-what-new-field-is-included-in-the-http-get-message">19.
+      When your browser’s sends the HTTP GET message for the second time, what new field is included in the HTTP GET message?</h4>
+    <p>O novo campo incluído é o Authorization, que contém as credenciais de autenticação.</p>
+  </div>
+</body>
+
+</html>
