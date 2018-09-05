@@ -1,11 +1,11 @@
 # Capítulo 1 - Redes de Computadores e a Internet
 ---
 
-### 1.1 O que é a Internet? 
+## 1.1 O que é a Internet? 
 ---
 Disversas maneiras de se definir, a seguir serão apresentadas 2 delas.
 
-##### 1.1.1 Uma descrição dos componentes da rede
+### 1.1.1 Uma descrição dos componentes da rede
 ---
 Sistemas finais são os dispositivos da ponta. Se comunicam através de enlaces (links) e comutadores de pacotes. Diversos meios de comunicação. A taxa de trasmissão de um enlace é medida em bits por segundo. É necessário que o emissor segmente os dados e a cada segmento adicione bytes de cabeçalho. No destino final são reagregados.
 
@@ -16,27 +16,27 @@ Sistemas finais acessam a rede através de ISPs. Todos esses componentes da rede
 Padrões são necessarios para que todos se entendam. Os padrões da internet são feitos pela IETF, que produzem os RFCs. Definem os protocolos TCP< IP HTTP e SMTP. Também existe o IEEE que especifíca padrões Ethernet e Wi-Fi.
 
 
-##### 1.1.2 Uma descrisção do serviço
+### 1.1.2 Uma descrisção do serviço
 ---
 Também é possível descreve-la como uma infraestrutura que provê serviços a aplicações. Aplicações distribuídas. Essas aplicações proveem uma Interface de Programação de Aplicação que especifica como o componente do sistema final solicita à infraestrutura que envie dados a um componente específico de destino, executado em outro sistema final.
  
 
-##### 1.1.3 O que é um protocolo?
+### 1.1.3 O que é um protocolo?
 ---
 É preciso que 2 entidades comunicantes executem o mesmo protocolo para que uma tarefa seja realizada.
 
 "Um protocolo define o formato e a ordem das mensagens trocadas entre 2 ou mais entidades comunicantes, bem como as ações realizadas na transmissçao e/ou no recebimento de um mensagem ou outro evento". 
 
-### 1.2 A periferia da Internet
+## 1.2 A periferia da Internet
 ---
 Como a abordagem é top-down, começaremos analisando os sistemas finais. Também são conhecisdos como hosts. São divididos em clientes e servidores. 
 
-##### 1.2.1 Programas clientes e servidores
+### 1.2.1 Programas clientes e servidores
 ---
 Um programa cliente funciona em um sitema final que solicita e recebe serviço de um servidor, que funcion em outro sistema final. Nem todas as aplicações são assim. Existem os P2P.
 
 
-##### 1.2.2 Redes de acesso
+### 1.2.2 Redes de acesso
 ---
 Entenderemos as redes de acesso, isto é, enlaces físicos que conectam um sistema final ao primeiro roteador (roteador de borda). Muitas das tecnologias empegram parcelas de infraestrutura telefônica com fio, fornecida por uma operadora. Cada residência possui um par direto de fios de cobre trançado para um comutador da operador na região, localizado na "central telefônica". São centenas de TC's.
 
@@ -64,7 +64,7 @@ Utiliza a rede de celular, até 10 Km de distância. 3G.
 **WiMAX**
 IEEE 802.16. Funciona independente da rede de celular.
 
-##### 1.2.3 Meios Físicos
+### 1.2.3 Meios Físicos
 ---
 Visão geral dos meios de transmissão mais comuns. Existem meios guiados e não guiados. Guiados usam cabos e não guiados usam a atmosfera.
 
@@ -83,9 +83,9 @@ Espectro eletromagnético. Não requer cabos. Sofrem atenuação interferência.
 **Canais de rádio por satélite**
 Um satélite liga 2 ou mais transmissores-receptores de microondas na Terra. Na faixa de Gbps. Satélites geoestacionários e de órbita baixa.
 
-### 1.3 O núcleo da rede
+## 1.3 O núcleo da rede
 ---
-##### 1.3.1 Comutação de circuitos e comutação de pacotes
+### 1.3.1 Comutação de circuitos e comutação de pacotes
 ---
 São as duas abordagens possíveis. Nas rede de comutação de circuitos os recursos necessários pelo caminho para a comunicação são reservados pelo periodo de comunicação e na comutação de pacotes não e as mensagens poderão precisar entrar na fila para ter acesso. Como se fossem dois restaurante, um aceita reserva e outro não. Redes de telefonia são de circuito pois as partes precisamestabelecer uma conexão forte. A taxa de transmissão égarantida. A internet é o que há de mais apurado nas redes de comutação de pacotes. A internet faz o melhor esforço para entregar os dados prontamente, mas não há garantias.
 
@@ -101,7 +101,7 @@ Em redes o emissor fragmenta mensagens longas em porções denominadas pacotes. 
 **Comutação de pacotes versus comutação de circuitos: multiplexação estatpística**
 Comparando as duas. Desvantagens da comu. pacotes: inadequada para serviços de tempo real. Vantagens: melhor compartilhamento de banda e implementação mais simples, mais eficiente e mais barata. Até mesmo redes telefônicas estão migrando para comu. pacotes.
 
-##### 1.3.2 Como os pacotes percorrem as redes de comutadores de pacotes?
+### 1.3.2 Como os pacotes percorrem as redes de comutadores de pacotes?
 ---
 Cada pacote contem em seu cabeçalho o endereço de destino. Esse endereço possui uma estrutura hierárquica. Cada
 roteador possui uma base de encaminhamentoque mapeia o endereço de destino para prox. enlace. A internet possui
@@ -109,7 +109,7 @@ protocolos de roteamento para gerar as bases. Semelhante a um motorista que não
 informações.
 
 
-##### 1.3.3  ISPs e backbones da Internet
+### 1.3.3  ISPs e backbones da Internet
 ---
 A internet é uma rede de redes. ISPs de acesso estão na borda. Há também ISPs de nível 1: Conectam-se diretamente a
 cada um dos outros ISPs de nivel 1; conectam-se a um grande numero de ISPs de nivel 2 e a outras redes de clientes;
@@ -117,11 +117,11 @@ cobertura internacional. Também são conhecidos como redes de backbone de Inter
 ISPs de nível 2 tem cobertura nacional ou regional. ISPs ligados são denominados pares. O pontos de conexão são
 conhecidos como pontos de presença (POP). Um ISP nivel 1 tem varios POPs.
 
-### 1.4 Atraso, perda e vazão em redes de comutação de pacotes
+## 1.4 Atraso, perda e vazão em redes de comutação de pacotes
 ---
 Não haver perdas é inalcançavel.
 
-##### 1.4.1 Uma visão geral de atraso em redes de comutação de pacotes
+### 1.4.1 Uma visão geral de atraso em redes de comutação de pacotes
 ---
 Em cada nó do caminho ocorrem diversos tipos de atraso, formando o atraso nodal total. A seguir vamos entender a Natureza desses atrasos.
 
@@ -144,14 +144,14 @@ O pacote só poode ser transmitido depois que os da frente forem enviados. O tam
 O atraso de transmissão é a qtde de tempo requerida para o roteador empurrar o pacote para fora; uma função do comprimento do pacote e da taxa de transmissão do enlace e não tem nada a ver com a distancia entre os roteadores.
 O atraso de propagação é o tempo que lava para um bit se propagar até o roteador seguinte. Uma função da distância dos roteadores e nao tem nada a ver com o comprimento do pacote ou a taxa de transmissão do enlace.
 
-##### 1.4.2 Atraso de fila e perda de pacote
+### 1.4.2 Atraso de fila e perda de pacote
 ---
 O mais importante atraso nodal é o atraso de fila. Varia de pacote para pacote. A caracterização deste utiliza mdedições estatística como atraso de fila medio, variancia do atraso e probabilidade. Sendo a pacotes/segundo, R taxa de transmissão e L o tamanho dos pacotes e a fila sendo infinita, caso L*a/R seja  > 1 o atraso é infinito. Os sistemas nao podem ter intensidade de trafego maior que 1. O processo de chegada de pacotes é aleatório.
 
 **Perda de pacote**
 As filas são finitas. Quando um pacote chega e a fila está cheia ele é descaratado. Isso impede atraso infinito. Aumenta conforme a intenssidade do trafego. Nós podem ter seu desempenho medido tambem em probabilidade de perda de pacotes. Os pacotes são geralmente retransmitidos qdo se perderm.
 
-##### 1.4.3 Atrasos fim a fim
+### 1.4.3 Atrasos fim a fim
 ---
 Os atrasos nodais se acumulam e resultam em um atraso fim a fim.
 
@@ -161,14 +161,14 @@ Programa que envia pacotes especiais para medir o atraso.
 **Sistema final, aplicativo e outros atrasos**
 Os sistemas finais podem adicionar outros atrasos, incluisive intencionalmente. Existe também atraso de empacotamento no VoIP
 
-##### 1.4.4 Vazão nas redes de computadores
+### 1.4.4 Vazão nas redes de computadores
 ---
 Além do atraso e da perda de pacotes, a vazão também mede desempenho. Vazão é F/T bits/s sendo F o nro de bits e T o tempo. Vazão é muito importante na transferência de arquivos. Quando a vários nós, o quhe tiver menos vazao sera um gargalo na rede. Hoje em dia o fator coercitivo para vazão é o acesso a rede. Dependente das taxas de transmissão dos enlaces. 
 
-### 1.5 Camadas de protocolo e seus modelos de serviço 
+## 1.5 Camadas de protocolo e seus modelos de serviço 
 ---
 
-##### 1.5.1 Arquitetura de camadas
+### 1.5.1 Arquitetura de camadas
 ---
 Como se fosse a funcionalidade de uma linha aerea. Separação em camadas permite modularidade, e é muito mais facil modificar a implementação do serviço prestado pela camada.
 
@@ -193,7 +193,7 @@ Movimenta os bits individuais dentro do quadro. Os protocolos dependem do enlace
 **O modelo OSI**
 Prove uma organização em 7 camadas. As duas que não aparecem são incorporadas pela camada de aplicação.
 
-##### 1.5.2 Mensagens, segmentos, datagramas e quadros
+### 1.5.2 Mensagens, segmentos, datagramas e quadros
 ---
 Sistemas finais devem implementar todas as camadas, já os nós intermediarios (comutadores e roteadores) não. Cada camada adiciona um pouco de dados no cabeçalho dos dados e também bits de detecção de erro.
 
@@ -203,11 +203,11 @@ Sistemas finais devem implementar todas as camadas, já os nós intermediarios (
 ---
 Se não houvessem aplicações não seria necessário redes. Terreno familiar para iniciar estudo dos protocolos. 
 
-### 2.1 Princípios de aplicações de rede
+## 2.1 Princípios de aplicações de rede
 ---
 O cene do desenvolvimento é escrever programas que rodem em sistemas finais diferentes e se comuniquem entre si pela rede. 
 
-##### 2.1.1 Arquiteturas de aplicação de rede
+### 2.1.1 Arquiteturas de aplicação de rede
 ---
 É necessario elaborar um plano geral para a arquitetura. Deverá escolher entre cliente-servidor e P2P. Em cliente-servidor há um hospedeiro sempre em funcionamento (servidor) que atende requisições de outros hospedeiros (clientes). O servidor tem um endereço fixo (IP). Um conjunto de hospedeiros é denominado data center. Em P2P há confiança mínima nos servidores sempre em funcionamento. Possui autoescalabilidade. Então há conexão ocorre netre pares alternadamanete. Esses pares não são dos provedores de serviço e sim dos próprios usuários. Muitas aplicações são híbridas.
 
@@ -216,7 +216,7 @@ O cene do desenvolvimento é escrever programas que rodem em sistemas finais dif
 - Segurança: Natureza altamente distribuída e exposta.
 - Incentivos: Depende que os usários participem para oferecer largura de banda, armazenamento e recursos.
 
-##### 2.1.2 Comunicação entre processos
+### 2.1.2 Comunicação entre processos
 ---
 Entender como programas em diferentes sistemas se comunicam. Na verdade, são processos. Um processo pode ser imaginado como um programa que está rodadndo dentro de um sistema final. Se comunicam pela troca de mensagens.
 
@@ -229,7 +229,7 @@ Um processo envia mensagens para a rede e recebe mensagens dela através de uma 
 - Parametros da camada
 - Constroi a aplicação usando os serviços da camada oferecidos por esse protocolo.
 
-##### 2.1.3 Serviços de transporte disponíveis para aplicacoes
+### 2.1.3 Serviços de transporte disponíveis para aplicacoes
 ---
 **Transferencia confiavel de dados**
 Os pacotes podem se perder. Se um protocolo fornecer um serviço de recebimento de dados garantidos, ele fornecerá uma transferência confiável de dados.
@@ -243,7 +243,7 @@ Por exemplo cada bit do remetente chega ao socket destinatario em menos de 100 m
 **Segurança**
 No hospedeiro remetente um protocolo pode codificar todos os dados transmitidos. 
 
-##### 2.1.4 Servicos de transporte providos pela Internet
+### 2.1.4 Servicos de transporte providos pela Internet
 ---
 A internet disponibiliza 2 protocolos de transporte, o TCP e o UDP. 
 
@@ -259,24 +259,52 @@ Vazao e temporizacao nao sao oferecidos nem por TCP nem UDP.
 **Endereçamento de processos**
 É preciso especificar o nome ou endereço da máquina hospedeira (IP) e um identificador que especifique o processo destinatario no hospedeiro de destino (Porta).
 
-##### 2.1.5 Protocolos de camada de aplicacao
+### 2.1.5 Protocolos de camada de aplicacao
 ---
 Um protocolo de camada de aplicacao define como processos de uma aplicacao, que funcionam em sistemas finais diferentes, passam mensagens entre sim. Definem: os tipos de mensagens trocadas, a sintaxe dos varios tipos de mensagens, a semantica dos campos e a as regras para determinar quando e como um processo envia e responde mensagens.
 Aplicacoes de rede nao sao protocolos da camada de aplicacao. Um protocolo é apenas um pedaço de aplicacao de rede. 
 
-##### 2.1.6 Aplicacoes de rede abordadas neste livro
+### 2.1.6 Aplicacoes de rede abordadas neste livro
 ---
 Web, transferencia de arquivos, e-mail, servico de diretorio e aplicacoes P2P. 
 
-### 2.2 A Web e o HTTP
+## 2.2 A Web e o HTTP
 ---
 Até a década de 90 a internet era usada por pesquisadores, academicos e estudantes. Em 1994 surge a World Wide Web criada por Tim Berners-Lee. 
 
-##### 2.2.1 Descricao geral do HTTP
+### 2.2.1 Descricao geral do HTTP
 ---
 O HTTP é implementado em dois programas: um cliente e um servidor. Os programas trocam mensagens HTTP. 
 Uma página Web é constituída de objetos. Um objeto é simplesmente um arquivo - tal como um arquivo HTML ou JPEG - que se pode acessar com um unico URL. A paginas Web possuem um arquivo-base HTML e diversos objetos referenciados.
 Cada URL possui 2 componentes: o nome do hospedeiro e o caminho do objeto. O HTTP utiliza TCP como transporte. É um protocolo sem estado pois o servidor HTTP nao mantem nenhuma informação sobre cliente.
+
+### 2.2.2 Conexoes persistentes e nao persistentes
+
+Em varias aplicacoes, cliente e servidor se comunicam por um periodo prolongado, onde o cliente faz diversas requisicoes. Essas requisicoes podem ser consecutivas, periodicas ou aleatorias. Quando se usa TCP a aplicacao precisa decidir se cada par de mensagens sera enviado por conexoes distintas ou uma mesma conexao. O HTTP utiliza conexoes persistentes por padrao.
+
+#### O HTTP com conexoes nao persistentes
+
+Por padrao, os browsers abrem em media de cinco a dez conexoes TCP paralelas e cada uma manipula um par de mensagens. A utilizaocao de conexoes paralelas reduz o tempo de resposta.
+O browsers fazem apresentacao de 3 vias. O browser envia um reconhecimento para o servidor, este responde o reconhecimento e o browser envia um terceiro reconhecimento mas este junto com a requisição HTTP, em seguida o browser responde. Ao todo sao 4 RTTs.
+
+#### O HTTP com conexoes persistentes
+
+Cada objeto requer uma conexao a ser criada e mantida no HTTP nao persistente. Isso tb envolve alocacao de buffers TCP e conservação de variáveis TCP tanto no cliente quanto no servidor. Isso pode causar sobrecarga. Outra desvantagem é que cada objeto necessitará de dois RTTs.
+No HTTP persistente uma pagina inteira e seus objetos podem ser enviados por uma mesma conexao. As requisicoes podem ser feitas em paralelo. 
+Geralemente o servidor fecha a conexao quando nao é usada por um certo periodo de tempo.
+
+### 2.2.3 Formato da mensagem HTTP
+ 
+ As especificacoes do HTTP [RFC 2616] definem os formatos das mensagens HTTP. Ha dois tipos de mensagens HTTP: de requisicao e de resposta.
+
+#### Mensagem de requisicao HTTP
+
+A primeira linha de requisicao HTTP é denominada linha de requisição.  as demais, linhas de cabeçalho. Cada linha termina com um carriage  return (cr) e line feed (lf); A linha de requisição tem 3 campos separados por esoaco (sp): campo do metodo, URL e versao do HTTP. A linha do Host é necessária para os armazenadores intermediarios da Web. A linha de connection indica que o cliente deseja encerrar a conexao a pos a meresposta. A linha de User-Agent mostra qual o navegador realizou a requisicao. A linha Accept-language mostra que o usuario prefere uma versao em frances do objeto se disponivel. 
+Se o metodo for POST o corpo de entidade cointera o que o usuario digitou nos campos do formulario. Formularios tambem podem usar GET mas os dados terao de ser passado atraves da URL. Outros metodos sao HEAD, utilizado para depuracao, pois a resposta nao vem com o objeto requisitado. Existem também os métodos PUT, para atualizacoes e DELETE para delecoes.
+
+#### Mensagem de resposta HTTP
+
+
 
 
 
