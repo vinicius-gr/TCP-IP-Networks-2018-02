@@ -304,6 +304,18 @@ Se o metodo for POST o corpo de entidade cointera o que o usuario digitou nos ca
 
 #### Mensagem de resposta HTTP
 
+A linha inicial e chamada linha de estado, a demais linhas de cabeçalho e em seguida corpo de entidade, onde se encontra o objeto solicitado. A linha de estado tambem possui tres campos: a versao do protocolo, o status code e a mensagem de estado.
+A linha Connection indica que o servidor fechará a conexao apos enviar a mensagem. A linha Date indica o momento em que a resposta foi criada. A linha Server mostra qual o tipo de servidor (analogo a linha User-Agent da requisiscao). A linha Last-Modified indica o momento que o objeto sofreu a ultima modificacao e e fundamental para cache de objeto. A linha Content-length indica o nro de bytes do objeto. A linha content type indica o tipo do objeto.
+Tipos de resposta:
+
+- 200 OK: requisicao bem-sucedida;
+- 301 - Moved Permanently: objeto movio para outra URL e o software cliente faz requisicao para nova URL.
+- 400 - Bad Request: requisicao nao entendida pelo servidor.
+- 404 - Not Found: documento requisitado nao existe.
+- 505 - HTTP Version Not Supported: a versao do HTTP nao é suportada pelo servidor.
+
+### 2.2.4 Interacao usuario-servidor: cookies
+
 
 
 
