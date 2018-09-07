@@ -316,6 +316,25 @@ Tipos de resposta:
 
 ### 2.2.4 Interacao usuario-servidor: cookies
 
+Cookies servempara que os sites identifiquem mantenham registros dos usuários. 
+Possui 4 componentes:
+- Uma linha de cabecalho de cookie na resposta HTTP;
+- Uma linha de cabecalho de cookie na requisicao HTTP;
+- Um arquivo de cookie mantido no cliente e gerenciado pelo browser;
+- Um banco de dados de apoio mantido no servidor;
+Simplificam experiencia de compras na internet. O cookie mantido no cliente o identifica no banco de apoio no servidor. Muita controversia.
+Podem ser usados para manter sessoes.
+
+### 2.2.5 Caches Web
+
+Conhecidos tambem como servidores proxy. Atendem requisicoes HTTP em nome de um servidor Web de origem. Possui seu proprio disco de armazenagem e mantem copias de objetos requisitados recentemente. Ao mesmo etmpo servidor e cliente. ISPs instalam proxys. Usado para reduzir tempos de resposta e reduzir o trafego no enlace de acesso da instituicao à internet.
+
+### 2.2.6 GET condicional
+
+As copias nos proxys podem estar desatualizadas. GET codicional serve para verificar mudancas. É GET condicional se (1) usar metodo GET e (2) possuir linha de cabecalaho If-Modified-Since. Servidores retornam 304 - Not Modified se nao houve mudanca. Economiza largura de banda.
+
+## 2.3 Transferencia de arquivo: FTP
+
 
 
 
