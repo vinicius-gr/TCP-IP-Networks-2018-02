@@ -335,6 +335,55 @@ As copias nos proxys podem estar desatualizadas. GET codicional serve para verif
 
 ## 2.3 Transferencia de arquivo: FTP
 
+## 2.5 DNS: o serviço de diretório da Internet
+
+Um identificador é o nome de hospedeiro. Além disso, possuem o endereço IP. Endereços IP são hierárquicos da esquerda para direita.
+
+### 2.5.1 Serviços fornecidos pelo DNS
+
+É necessário um serviço de diretório para a conversão. Trata-se de (1) um banco de dados distribuído implementado em uma hierarquia de servidores de nome e (2) um protocolo de camada de aplicação que permite que hospedeiros consultem o banco. Os servidores geralmente são UNIS que executam o software BIND. O protocolo DSN utiliza UDP e usa a porta 53.
+Somente depois de obter o endereço DNS o browser pode abrir uma conexão TCP com o processo servidor.
+DNS adiciona mais um atraso às aplicações.
+Outros serviços:
+- Apelidos de hospedeiro;
+- Apelidos de servidor de correio;
+- Distribuição de carga;
+
+### 2.5.2 Visão geral do modo de funcionamento do DNS
+
+A aplicação chama o lado clente do DNS. Apartir daí o DNS do usuário assume o controle, enviando uma mensagemde consulta para a rede em um datagrama UDP à porta 53. O DNS não é centralizado pois isso acarretaria em: 
+- Um único ponto de falha;
+- Volume de tráfego alto;
+- Banco de dados distante;
+- Difícil manutenção;
+
+#### Um banco de dados distribuído, hierárquico
+
+Existem 3 classes: raiz, alto-nível e com autoridade.
+- Servidores de nomes raiz: Existem 13 na internet. Maior parte na américa do norte. Cada um é um conglomerado replicado para segurança e confiabilidade.
+- Servidores de nomes de Domínio de Alto Nivel (TLD): Sao responsáveis por domínios como com, org, net, edu e gov e países como uk.fr e br.
+- Servidores de nomes com autoridade: São montados pelas organizações ou contratar um serviço.
+Os ISPs possuem servidores DNS locais que agem como proxys.
+
+#### Cache DNS
+
+Explorado para reduzir o tráfego e melhorar desempenho. Geralmente informações são descartadas após 2 dias.
+
+### 2.5.3 Registros e mensagens DNS
+
+Um registro de recurso (RR) é uma tupla de quatro elementos: (Name, Value, Type, TTL)
+
+#### Mensagens DNS
+
+Usar nslookup para enviar mensagens DNS.
+
+#### Para inserir registros no banco de dados do DNS
+
+Entidades registradora é uma entidade comercial que verifica se é exclusivo o nome, registra-o no banco de dados do DNS e cobra uma taxa. Informar também nomes e endereços dos servidores DNS com autoridade primarios e secundarios
+
+
+
+
 
 
 
