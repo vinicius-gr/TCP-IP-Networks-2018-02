@@ -1,0 +1,141 @@
+﻿<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>src.html.html</title>
+  <link rel="stylesheet" href="https://stackedit.io/style.css" />
+
+  <style>
+    img{
+        -webkit-box-shadow: 0px 15px 30px -6px #777;
+          -moz-box-shadow: 0px 15px 30px -6px #777;
+                box-shadow: 0px 15px 30px -6px #777;
+                border-radius: 5px;
+    }
+  </style>
+</head> 
+
+<body class="stackedit">
+  <div class="stackedit__html">
+    <h1 id="wireshark-lab-dns">Wireshark Lab: DNS</h1>
+    <h4 style="display: inline" id="nome">Nome:</h4>
+    <p style="display: inline">Vinícius Gonzaga Rocha</p><br>
+    <h4 style="display: inline" id="matrícula">Matrícula:</h4>
+    <p style="display: inline">11511BCC019</p><br>
+    <h4 style="display: inline" id="descrição">Descrição:</h4>
+    <p style="display: inline">Atividade realizada para o aprofundamento do conhecimento do protocolo DNS.</p>
+    <hr>
+    <h3 id="nslookup">1. nslookup</h3>
+    <h4 id="run-nslookup-to-obtain-the-ip-address-of-a-web-server-in-asia.-what-is-the-ip-address-of-that-server">1. Run
+      nslookup to obtain the IP address of a Web server in Asia. What is the IP address of that server?</h4>
+    <p>O endereço obtido foi 92.242.140.6 para o site da Universidade de Seoul <a href="http://www.useoul.edu">www.useoul.edu</a></p>
+    <p><img src="imgs/1.jpg" alt="GET"></p>
+    <h4 id="run-nslookup-to-determine-the-authoritative-dns-servers-for-a-university-in-europe.">2. Run nslookup to determine
+      the authoritative DNS servers for a university in Europe.</h4>
+    <p>Foi executado para o site da Universidade de Lisboa <a href="http://www.ulisboa.pt">www.ulisboa.pt</a></p>
+    <p><img src="imgs/2.jpg" alt="GET"></p>
+    <h4 id="run-nslookup-so-that-one-of-the-dns-servers-obtained-in-question-2-is-queried-for-the-mail-servers-for-yahoo-mail.-what-is-its-ip-address">3.
+      Run nslookup so that one of the DNS servers obtained in Question 2 is queried for the mail servers for Yahoo! mail.
+      What is its IP address?</h4>
+    <p>O IP retornado foi 200.152.162.189. A operação sofreu time out pois o servidor é desconhecido.</p>
+    <p><img src="imgs/3.jpg" alt="GET"></p>
+    <hr>
+    <h3 id="tracing-dns-with-wireshark">3. Tracing DNS with Wireshark</h3>
+    <h4 id="locate-the-dns-query-and-response-messages.-are-then-sent-over-udp-or-tcp">4. Locate the DNS query and response
+      messages. Are then sent over UDP or TCP?</h4>
+    <p>São enviadas via UDP, conforme imagem.</p>
+    <p><img src="imgs/4.jpg" alt="GET"></p>
+    <h4 id="what-is-the-destination-port-for-the-dns-query-message-what-is-the-source-port-of-dns-response-message">5. What
+      is the destination port for the DNS query message? What is the source port of DNS response message?</h4>
+    <p>Destination Port da query: 53<br> Source Port da resposta: 53<br> Conforme imagens.</p>
+    <p><img src="imgs/5-1.jpg" alt="GET"><br>
+      <img src="imgs/5-2.jpg" alt="GET"></p>
+    <h4 id="to-what-ip-address-is-the-dns-query-message-sent-use-ipconfig-to-determine-the-ip-address-of-your-local-dns-server.-are-these-two-ip-addresses-the-same">6.
+      To what IP address is the DNS query message sent? Use ipconfig to determine the IP address of your local DNS server.
+      Are these two IP addresses the same?</h4>
+    <p>Para o 200.225.197.34. São o mesmo, conforme imagens.</p>
+    <p><img src="imgs/6-1.jpg" alt="GET"><br>
+      <img src="imgs/6-2.jpg" alt="GET"></p>
+    <h4 id="examine-the-dns-query-message.-what-“type”-of-dns-query-is-it-does-the-query-message-contain-any-“answers”">7.
+      Examine the DNS query message. What “Type” of DNS query is it? Does the query message contain any “answers”?</h4>
+    <p>Tipo A (Host Adress) (1). Não possui respostas, conforme imagem.</p>
+    <p><img src="imgs/7.jpg" alt="GET"></p>
+    <h4 id="examine-the-dns-response-message.-how-many-“answers”-are-provided-what-do-each-of-these-answers-contain">8. Examine
+      the DNS response message. How many “answers” are provided? What do each of these answers contain?</h4>
+    <p>Uma resposta foi provida. Contem o IP (Address) 92.242.140.6 além dos campos Name, Type, Class, Time to live, Data
+      length, conforme imagem.</p>
+    <p><img src="imgs/8.jpg" alt="GET"></p>
+    <h4 id="consider-the-subsequent-tcp-syn-packet-sent-by-your-host.-does-the-destination-ip-address-of-the-syn-packet-correspond-to-any-of-the-ip-addresses-provided-in-the-dns-response-message">9.
+      Consider the subsequent TCP SYN packet sent by your host. Does the destination IP address of the SYN packet correspond
+      to any of the IP addresses provided in the DNS response message?</h4>
+    <p>Não. O endereço contido na resposta foi 92.242.140.6 enquanto o destino do pacote SYN foi para 181.114.114.80</p>
+    <p><img src="imgs/9.jpg" alt="GET"></p>
+    <h4 id="this-web-page-contains-images.-before-retrieving-each-image-does-your-host-issue-new-dns-queries">10. This web
+      page contains images. Before retrieving each image, does your host issue new DNS queries?</h4>
+    <p>Não, conforme imagem.</p>
+    <p><img src="imgs/10.jpg" alt="GET"></p>
+    <h4 id="what-is-the-destination-port-for-the-dns-query-message-what-is-the-source-port-of-dns-response-message-1">11.
+      What is the destination port for the DNS query message? What is the source port of DNS response message?</h4>
+    <p>Destination Port da query: 53<br> Source Port da resposta: 53<br> Conforme imagens.</p>
+    <p><img src="imgs/11-1.jpg" alt="GET"><br>
+      <img src="imgs/11-2.jpg" alt="GET"></p>
+    <h4 id="to-what-ip-address-is-the-dns-query-message-sent-is-this-the-ip-address-of-your-default-local-dns-server">12.
+      To what IP address is the DNS query message sent? Is this the IP address of your default local DNS server?</h4>
+    <p>Para o 200.225.197.34. São o mesmo, conforme imagens.</p>
+    <p><img src="imgs/12-1.jpg" alt="GET"><br>
+      <img src="imgs/12-2.jpg" alt="GET"></p>
+    <h4 id="examine-the-dns-query-message.-what-“type”-of-dns-query-is-it-does-the-query-message-contain-any-“answers”-1">13.
+      Examine the DNS query message. What “Type” of DNS query is it? Does the query message contain any “answers”?</h4>
+    <p>Tipo AAA (IPv6 Address) (28). Não possui respostas, conforme imagem.</p>
+    <p><img src="imgs/13.jpg" alt="GET"></p>
+    <h4 id="examine-the-dns-response-message.-how-many-“answers”-are-provided-what-do-each-of-these-answers-contain-1">14.
+      Examine the DNS response message. How many “answers” are provided? What do each of these answers contain?</h4>
+    <p>Uma resposta foi provida. Contem o IP (Address) 92.242.140.6 além dos campos Name, Type, Class, Time to live, Data
+      length, conforme imagem.</p>
+    <p><img src="imgs/14.jpg" alt="GET"></p>
+    <h4 id="provide-a-screenshot.">15. Provide a screenshot.</h4>
+    <p><img src="imgs/15.jpg" alt="GET"></p>
+    <h4 id="to-what-ip-address-is-the-dns-query-message-sent-is-this-the-ip-address-of-your-default-local-dns-server-1">16.
+      To what IP address is the DNS query message sent? Is this the IP address of your default local DNS server?</h4>
+    <p>Para o 200.225.197.34. São o mesmo, conforme imagens.</p>
+    <p><img src="imgs/16-1.jpg" alt="GET"><br>
+      <img src="imgs/16-2.jpg" alt="GET"></p>
+    <h4 id="examine-the-dns-query-message.-what-“type”-of-dns-query-is-it-does-the-query-message-contain-any-“answers”-2">17.
+      Examine the DNS query message. What “Type” of DNS query is it? Does the query message contain any “answers”?</h4>
+    <p>É do tipo PTR (domain name PoinTeR) (12), conforme imagem.</p>
+    <p><img src="imgs/17.jpg" alt="GET"></p>
+    <h4 id="examine-the-dns-response-message.-what-mit-nameservers-does-the-response-message-provide-does-this-response-message-also-provide-the-ip-addresses-of-the-mit-nameservers">18.
+      Examine the DNS response message. What MIT nameservers does the response message provide? Does this response message
+      also provide the IP addresses of the MIT nameservers?</h4>
+    <p>Responde o IP 34.197.225.200, conforme imagem.</p>
+    <p><img src="imgs/18.jpg" alt="GET"></p>
+    <h4 id="provide-a-screenshot.-1">19. Provide a screenshot.</h4>
+    <p><img src="imgs/19-1.jpg" alt="GET"><br>
+      <img src="imgs/19-2.jpg" alt="GET"></p>
+    <h4 id="to-what-ip-address-is-the-dns-query-message-sent-is-this-the-ip-address-of-your-default-local-dns-server-if-not-what-does-the-ip-address-correspond-to">20.
+      To what IP address is the DNS query message sent? Is this the IP address of your default local DNS server? If not,
+      what does the IP address correspond to?</h4>
+    <p>A primeira query foi para o mesmo IP local (200.225.197.34) enquanto a segunda foi para o IP (18.72.0.3), conforme
+      imagens.
+    </p>
+    <p><img src="imgs/20-1.jpg" alt="GET"><br>
+      <img src="imgs/16-2.jpg" alt="GET"><br>
+      <img src="imgs/20-2.jpg" alt="GET"></p>
+    <h4 id="examine-the-dns-query-message.-what-“type”-of-dns-query-is-it-does-the-query-message-contain-any-“answers”-3">21.
+      Examine the DNS query message. What “Type” of DNS query is it? Does the query message contain any “answers”?</h4>
+    <p>É do tipo PTR (domain name PoinTeR) (12), conforme imagem.</p>
+    <p><img src="imgs/21.jpg" alt="GET"></p>
+    <h4 id="examine-the-dns-response-message.-how-many-“answers”-are-provided-what-does-each-of-these-answers-contain">22.
+      Examine the DNS response message. How many “answers” are provided? What does each of these answers contain?</h4>
+    <p>Uma resposta foi provida, contendo os campos nome do host, tipo, classe, ‘time to live’, tamanho dos dados e o endereço
+      de IP 18.72.0.3 (<a href="http://bitsy.mit.edu">bitsy.mit.edu</a>).</p>
+    <p><img src="imgs/22.jpg" alt="GET"></p>
+    <h4 id="provide-a-screenshot.-2">23. Provide a screenshot.</h4>
+    <p><img src="imgs/23-1.jpg" alt="GET"><br>
+      <img src="imgs/23-2.jpg" alt="GET"></p>
+  </div>
+</body>
+
+</html>
