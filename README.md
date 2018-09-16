@@ -349,6 +349,30 @@ Meio de comunicação assincrono. Tres componentes: agentes de usuario, servidor
 
 Mais antigo que o HTTP. Bastante antigo e arcaico. Limita o corpo das mensagens ao formato ASCII 7 bits. Isso exige codificaçao e decodificacao. SMTP noramalmente nao usa servidores de correio intermediarios para enviar correspondencias.
 
+### 2.4.2 Comparacao com o HTTP
+
+O HTTP transfere arquivos (objetos) de um servidor Web para um cliente Web (normalmente um browser). O SMTP transfere arquivos (mensagens de email) de um servidor de correio para outro. O HTTP persistente e o SMTP utilizam conexoes persitentes. Entretanto as diferenças sao q o HTTP é um protocolo principalmente de recuperacao de informacoes (pull protocol), e em contrapartida o STMP é um protocolo de envio de informacoes (push protocol). HTTP nao restringe dados a ASCII 7 bits, enquanto o SMTP o faz. O HTTP separa cada objeto em sua propria mensagem, enquanto o STMP envia tudo em uma mensagem só.
+
+### 2.4.3 Formatos de mensagem de correio e MIME
+
+Quando uma mensagem de email e enviada, um cabecalho contendo informacoes perifericas antecede o corpo da mensagem em si. As linhas de cabecalho sao separadas por uma linha em branco (CRLF). Cada cada linha consiste de uma palavra chave seguida de dois pontos e um valor. Algumas sao obrigatorias e outras opcionais. Deve conter pelo menos FROM e TO. Sao diferente de comandos SMTP. Os comandos fazem parte do protocolo de apresentacao do SMTP, enquantos as linhas de cabecalho sao parte da mensagem em si.
+
+### 2.4.4 Protocolos de acesso ao correio
+
+O acesso ao correio atualmente utiliza uma arquitetura cliente servidor. Nao é possivel manter um servidor STMP em casa, pois isso significaria a necessidade de manter o servidor sempre ativo. Geralmente os servidores de correio sao compartilhados. O problema é que o STMP serve para enviar mensagens (protocolo de push). Enviar portanto é simples, mas como os usuarios acessam suas caixas postais? Ai que entram POP3, IMAP e HTTP que sao de pull.
+
+#### POP3
+
+Protocolo de acesso extremamente simples. Funcionalidades limitadas. O clente abre uma conexao TCP com o servidor na porta 110. Apos ativar a conexao TCP sao tres fases: Autorizacao, transacao e atualizacao. Em uma transacao POP3 o agente emite varios comandos para o servidor e este uma resposta para cada um, que pode ser OK ou ERR. O POP3 mantem informacoes de estado, mas nao sobre a sessao.
+
+#### IMAP
+
+Nao é possivel manter hierarquia de pastas com o POP3, por isso surgiu o IMAP. Significativamente mais complexo. Mantem informacoes entre sessoe. Possui comandos para criar, modificaar e apagar pastas e associar mensagens a elas. Por default as mensagens vao para a pasta INBOX. Permite baixar partes de mensagens, bom para conexoes com pouca largura.
+
+#### E-mail para Web
+
+Hoje em dia o que ocorre é que os emails estao no browser e portanto as comunicacoes dos cliente para os servidores de correio sao feitas por HTTP, e os servidores de correio continuam dialogando por SMTP.
+
 ## 2.5 DNS: o serviço de diretório da Internet
 
 Um identificador é o nome de hospedeiro. Além disso, possuem o endereço IP. Endereços IP são hierárquicos da esquerda para direita.
@@ -393,4 +417,38 @@ Usar nslookup para enviar mensagens DNS.
 
 #### Para inserir registros no banco de dados do DNS
 
-Entidades registradora é uma entidade comercial que verifica se é exclusivo o nome, registra-o no banco de dados do DNS e cobra uma taxa. Informar também nomes e endereços dos servidores DNS com autoridade primarios e secundarios
+Entidades registradora é uma entidade comercial que verifica se é exclusivo o nome, registra-o no banco de dados do DNS e cobra uma taxa. Informar também nomes e endereços dos servidores DNS com autoridade primarios e secundarios.
+
+## 2.6 Aplicacoes P2P
+
+Em P2P os pares (usuarios) comunicam diretamente entre si. As tres aplicacoes estudadas serao bitTorrent (compartlhamento de arquivos), banco de dados distribuidos (DHT) e o Skype (telefonia).
+
+### 2.6.1
+
+O protocolo mais popular atualmente é o bitTorrent. Desenvolvido por Bram Cohen.
+
+#### Escalabilidade de arquiteturas P2P
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
