@@ -335,6 +335,20 @@ As copias nos proxys podem estar desatualizadas. GET codicional serve para verif
 
 ## 2.3 Transferencia de arquivo: FTP
 
+E necessario autorizar-se diante do servidor para fazer a copia dos arquivos. Tanto HTTP quanto FTP utilizam TCP, mas o FTP utiliza duas conexoes TCPs paralelas:uma conexao de controle e uma conexao de dados. Portanto envia as informacoes de controle fora da banda. O FTP envia exatamente um arquivo pela conexao de dados e em seguida fecha-a. A conexao de controle e mantida durante a sessao. Sao mantidas informacoes de estado sobre o usuario. Isso limita o numero de sessoe que o FTP pode manter simultaneamente. O HTTP é sem estado.
+
+### 2.3.1 Comandos e respostas FTP
+
+Os comandos e respostas sao enviadas no formato ASCII 7 bits. Os comandos sao encerrados assim como no HTTP carriage return e line feed. Os mais comuns são USER, PASS, LIST, RETR e STOR.
+
+## 2.4 Correio eletronico na Internet
+
+Meio de comunicação assincrono. Tres componentes: agentes de usuario, servidores de correio e o SMTP, que é o principal protocolo de email.
+
+### 2.4.1 SMTP
+
+Mais antigo que o HTTP. Bastante antigo e arcaico. Limita o corpo das mensagens ao formato ASCII 7 bits. Isso exige codificaçao e decodificacao. SMTP noramalmente nao usa servidores de correio intermediarios para enviar correspondencias.
+
 ## 2.5 DNS: o serviço de diretório da Internet
 
 Um identificador é o nome de hospedeiro. Além disso, possuem o endereço IP. Endereços IP são hierárquicos da esquerda para direita.
@@ -380,25 +394,3 @@ Usar nslookup para enviar mensagens DNS.
 #### Para inserir registros no banco de dados do DNS
 
 Entidades registradora é uma entidade comercial que verifica se é exclusivo o nome, registra-o no banco de dados do DNS e cobra uma taxa. Informar também nomes e endereços dos servidores DNS com autoridade primarios e secundarios
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
