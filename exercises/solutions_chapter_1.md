@@ -37,7 +37,7 @@ Os componentes de atraso são os atrasos de processamento, atraso de propagaçã
 *Transmissao*  = Tamanho / Taxa de transmissao
 *Fila*         = 0 
 
-(2500**10^3)/(2.5**10^8) = 0.01s; d/s; Não depende; Não depende.
+(2500\*10^3)/(2.5\*10^8) = 0.01s; d/s; Não depende; Não depende.
 
 #### Questão 19 – Suponha que o Hospedeiro A queira enviar um arquivo grande para o Hospedeiro B. O percurso do Hospedeiro A para o Hospedeiro B possui três enlaces, de taxas R1 = 500 kbps, R2 = 2Mbps, e R3 = 1 Mbps. 
 
