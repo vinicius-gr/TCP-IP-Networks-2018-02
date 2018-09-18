@@ -429,7 +429,22 @@ O protocolo mais popular atualmente é o bitTorrent. Desenvolvido por Bram Cohen
 
 #### Escalabilidade de arquiteturas P2P
 
+Para a distribuição de um arquivo na arquitetura cliente servidor, têm-se: 
+Dcs = máx{NF / us, F / dmin}.
 
+Com isso podemos dizer que o tempo de distribuição aumenta linear mente com N.
+
+Para a distribuição de um arquivo na arquiterua P2P têm-se: 
+Dp2p = máx{F / us, F / dmin, NF / us + Σ ui}
+
+
+Aplicações P2P apresentam autoescalabilidade, pois pares passam a ser redistribuidores.
+
+#### BitTorrent
+
+A coleção de todos os pares que participam da distribuição de um arquivo é chamada de torrent. Os downloads são feitos em blocos de geralmente 256Kb. Enquanto um par vai fazendo download de blocos faz também o upload para outros pares.
+Cada torrent tem um nó de infraestrutura chamado rastreador. Quando um par chega em um torrent, ele se registra no rastreador e se mantém informando que ainda está no torrent. Assim, o rastreador possui registro de todos que estão participando.
+Os pares estabelecem conexoes TCP simultaneas. Os pares fazem solicitações de blocos que ainda não possuem. Os blocos a serem solicitados seguem a plítica de rarest first. Isso serve para que os blocos mais raros nao sejam perdidos. Para determinar a quais pedidos atender, o protocolo usa a troca inteligente, ou seja, os pares que possuem a maior taxa. Sao quatro pares revisados periodicamente, e sao chamados de unchoked. Tambem é escolhido um vizinho aleatorio chamado de optimistically unchoked. Pares com taxas de upload parecidas tendem a se encontrar. Isso se chama tit-fot-tat, essencial para a sobrevivencia do bitTorrent.
 
 
 

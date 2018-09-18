@@ -32,6 +32,11 @@ Os componentes de atraso são os atrasos de processamento, atraso de propagaçã
 
 #### Questão 18 – Quanto tempo um pacote de 1.000 bytes leva para se propagar através de um enlace de 2.500 km de distância, com uma velocidade de propagação de 2,5 * 10^8 m/s e uma taxa de transmissão de 2 Mbps? Geralmente, quanto tempo um pacote de comprimento L leva para se propagar através de um enlace de distância d, velocidade de propagação s, e taxa de transmissão de R bps? Esse atraso depende do comprimento do pacote? Esse atraso depende da taxa de transmissão?
 
+*latencia*     = Propagação + Transmissao + Fila
+*Propagação*   = Distancia / Velocidade
+*Transmissao*  = Tamanho / Taxa de transmissao
+*Fila*         = 0 
+
 (2500**10^3)/(2.5**10^8) = 0.01s; d/s; Não depende; Não depende.
 
 #### Questão 19 – Suponha que o Hospedeiro A queira enviar um arquivo grande para o Hospedeiro B. O percurso do Hospedeiro A para o Hospedeiro B possui três enlaces, de taxas R1 = 500 kbps, R2 = 2Mbps, e R3 = 1 Mbps. 
