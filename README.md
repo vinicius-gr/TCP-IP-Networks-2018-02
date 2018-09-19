@@ -409,7 +409,13 @@ Explorado para reduzir o tráfego e melhorar desempenho. Geralmente informaçõe
 
 ### 2.5.3 Registros e mensagens DNS
 
-Um registro de recurso (RR) é uma tupla de quatro elementos: (Name, Value, Type, TTL)
+Um registro de recurso (RR) é uma tupla de quatro elementos: (Name, Value, Type, TTL).
+Podem ser:
+- tipo A: name é o hostname e value é o IP.
+- tipo NS: name é o domínio e o value é o nome do servidor de nomes com autoridade que sabem onde estão os IPs do domínio.
+- tipo CNAME: name é o apelido e o value é nome canônico.
+- tipo MX: name é o hospedeiro e o value é o nome canônico de um servidor.
+
 
 #### Mensagens DNS
 
