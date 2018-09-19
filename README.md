@@ -94,11 +94,14 @@ São as duas abordagens possíveis. Nas rede de comutação de circuitos os recu
 
 **Multiplexação em redes de comutação de circuitos**
 Um circuito é implementado em um enlace por multiplexação por divisão de frequência (FDM) ou por multiplexação por divisão de tempo (TDM). Com FDM, cada circuito disõe continuamente de  uma fração da largura de banda. Com TDM, cada circuito dispõe de toda a largura de banda periodicamente, em intervalos de tempo. É ruim pois recursos são desperdiçados.
+Podemos dizer que, para o TDM, cada sinal usa toda a largura de banda por algum tempo, enquanto que para o FDM, cada sinal usa uma pequena parte da largura de banda o tempo todo.
+O TDM oferece maior flexibilidade e eficiência, alocando dinamicamente mais períodos para os sinais que precisam de mais largura de banda, enquanto reduz os períodos de tempo para os sinais que não precisam dele. O FDM não possui este tipo de flexibilidade, uma vez que não pode alterar dinamicamente a largura da frequência alocada.
+A vantagem do FDM sobre o TDM está em latência. Latência é o tempo que leva para os dados chegarem ao seu destino. Como o TDM aloca períodos de tempo, somente um canal pode transmitir em um determinado momento, e alguns dados costumam ser atrasados, embora muitas vezes seja apenas em milissegundos. Como os canais no FDM podem transmitir a qualquer momento, suas latências seriam muito menores em comparação com o TDM. O FDM é frequentemente usado em aplicativos nos quais a latência é de extrema prioridade, como aqueles que exigem informações em tempo real.
 
 **Comutação de pacotes**
 Em redes o emissor fragmenta mensagens longas em porções denominadas pacotes. Os comutadores empregam a técnica armazena-e-reenvia, e portanto deve receber o pacote inteiro antes de começar os trablahos. Isso representa atraso. Atraso total é Q*L/R. Para cada enlace o comutador tem um buffer. Os pacotes tb sofrem atrasos de fila. Pode ocorrer perda de pacote pois a fila não é infinita.
 
-**Comutação de pacotes versus comutação de circuitos: multiplexação estatpística**
+**Comutação de pacotes versus comutação de circuitos: multiplexação estatística**
 Comparando as duas. Desvantagens da comu. pacotes: inadequada para serviços de tempo real. Vantagens: melhor compartilhamento de banda e implementação mais simples, mais eficiente e mais barata. Até mesmo redes telefônicas estão migrando para comu. pacotes.
 
 ### 1.3.2 Como os pacotes percorrem as redes de comutadores de pacotes?
@@ -125,22 +128,22 @@ Não haver perdas é inalcançavel.
 ---
 Em cada nó do caminho ocorrem diversos tipos de atraso, formando o atraso nodal total. A seguir vamos entender a Natureza desses atrasos.
 
-**Tipos de atraso**
+#### Tipos de atraso
 Análise da figura 1.16. Um pacote só pode ser transmitido se não houver nenhum outro pacote sendo transmitido no enlace e se não houver ninguem na frente dele na fila.
 
-**Atraso de processamento**
-Trata-se do tempo requerido para examinar o cabeçalho e determinar para onde direcionar o pacote. Tambem pode incluir  fatores como o tempo necessario para verificação de erros. Microssegundos ou menos. Depois direciona para a fila do enlace para o roteador B.
+##### Atraso de processamento
+Trata-se do tempo requerido para examinar o cabeçalho e determinar para onde direcionar o pacote. Tambem pode incluir  fatores como o tempo necessario para verificação de erros. Microssegundos ou menos. Depois direciona para a fila do enlace para o roteador B. Não há formula.
 
-**Atraso de fila**
-Tempo de espera para ser transmitido no enlace. Tempo variável. É possivel prever o nro de pacotes na fila utilizando uma função.Na ordem de micro ou milissegundos.
+##### Atraso de fila
+Tempo de espera para ser transmitido no enlace. Tempo variável. É possivel prever o nro de pacotes na fila utilizando uma função.Na ordem de micro ou milissegundos. Não há fórmula.
 
-**Atraso de transmissão**
-O pacote só poode ser transmitido depois que os da frente forem enviados. O tamanho do pacote é L e a velocidade de transmissao de A para B é R btis/s. O atraso de transmissão é L/R, ou seja, a quantidade de tempo para empurrar todos os bits para o enlace. Micro a milssegundos.
+##### Atraso de transmissão
+O pacote só poode ser transmitido depois que os da frente forem enviados. O tamanho do pacote é L e a velocidade de transmissao de A para B é R btis/s. O atraso de transmissão é L/R, ou seja, a quantidade de tempo para empurrar todos os bits para o enlace. Micro a milssegundos. Fórmula: L/R
 
-**Atraso de propagação**
-É o tempo para se propagar até o roteador B. O tempo depende da velocidade de propagação do enlace. Esse atraso é calculado dividindo a distância pela velociadde. d/s.
+##### Atraso de propagação
+É o tempo para se propagar até o roteador B. O tempo depende da velocidade de propagação do enlace. Esse atraso é calculado dividindo a distância pela velociadde. Fórmula: d/s.
 
-**Comparação entre atrasos de transmissão e de propagação**
+##### Comparação entre atrasos de transmissão e de propagação
 O atraso de transmissão é a qtde de tempo requerida para o roteador empurrar o pacote para fora; uma função do comprimento do pacote e da taxa de transmissão do enlace e não tem nada a ver com a distancia entre os roteadores.
 O atraso de propagação é o tempo que lava para um bit se propagar até o roteador seguinte. Uma função da distância dos roteadores e nao tem nada a ver com o comprimento do pacote ou a taxa de transmissão do enlace.
 

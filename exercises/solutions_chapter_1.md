@@ -16,7 +16,7 @@ Par de fios de cobre trançado, cabo coaxial e fibra ótica.
 
 #### Questão 11 – Qual é a vantagem de uma rede de comutação de circuitos em relação a uma de comutação de pacotes? Quais são as vantagens da TDM sobre a FDM em uma rede de comutação de circuitos?
 
-A vantagem é que a taxa de transmissão é garantida, uma vez que os recursos necessários para a conexão estão reservados ao longo do caminho. A vantagem da TDM sobre a FDM é que, por um período de tempo, cada circuito terá toda a largura de banda.
+A vantagem é que a taxa de transmissão é garantida, uma vez que os recursos necessários para a conexão estão reservados ao longo do caminho. A vantagem da TDM sobre a FDM é que, por um período de tempo, cada circuito terá toda a largura de banda. Além disso, o TDM oferece maior flexibilidade e eficiência, alocando dinamicamente mais períodos para os sinais que precisam de mais largura de banda, enquanto reduz os períodos de tempo para os sinais que não precisam dele. O FDM não possui este tipo de flexibilidade, uma vez que não pode alterar dinamicamente a largura da frequência alocada.
 
 #### Questão 12 – Por que se afirma que a comutação de pacotes emprega multiplexação estatística? Compare a multiplexação estatística com a multiplexação que ocorre em TDM.
 
@@ -32,10 +32,11 @@ Os componentes de atraso são os atrasos de processamento, atraso de propagaçã
 
 #### Questão 18 – Quanto tempo um pacote de 1.000 bytes leva para se propagar através de um enlace de 2.500 km de distância, com uma velocidade de propagação de 2,5 * 10^8 m/s e uma taxa de transmissão de 2 Mbps? Geralmente, quanto tempo um pacote de comprimento L leva para se propagar através de um enlace de distância d, velocidade de propagação s, e taxa de transmissão de R bps? Esse atraso depende do comprimento do pacote? Esse atraso depende da taxa de transmissão?
 
-- *latencia*     = Propagação + Transmissao + Fila
+- *Latencia*     = Propagação + Transmissao + Fila + Processamento
 - *Propagação*   = Distancia / Velocidade
 - *Transmissao*  = Tamanho / Taxa de transmissao
-- *Fila*         = 0 
+- *Fila*         = Não existe fórmula
+- *Proces*       = Não existe fórmula
 
 (2500\*10^3)/(2.5\*10^8) = 0.01s; d/s; Não depende; Não depende.
 
