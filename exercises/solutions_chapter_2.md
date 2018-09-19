@@ -44,4 +44,8 @@ Sim.
 
 #### Questão 22 – O que é uma rede de sobreposição em um sistema de compartilhamento de arquivos P2P? Ela inclui roteadores? Como a rede de sobreposição de inundação de consultas é criada e como é mantida?
 
+Uma rede de sobreposição é uma rede virtual lógica e abstrata, organizada sobre os pares de um DHT, ou seja, esta acima da própria rede que estes pares utilizam para se comunicar. Não inclui reoteadores. 
+
 #### Questão 24 – Considere uma DHT com uma topologia da rede de sobreposição (ou seja, cada par rastreia todos os pares no sistema). Quais são as vantagens e desvantagens de uma DHT circular (sem atalhos)?
+
+A vantagem é que o número de pares vizinhos que um par tem de rastrear é mínimo, ou seja, apenas o próximo. A desvantagem é que o número de mensagens enviadas pela rede será muito maior do que numa rede com atalhos, uma vez que é necessário sair passando por cada par.
