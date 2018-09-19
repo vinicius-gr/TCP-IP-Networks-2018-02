@@ -423,7 +423,7 @@ Entidades registradora é uma entidade comercial que verifica se é exclusivo o 
 
 Em P2P os pares (usuarios) comunicam diretamente entre si. As tres aplicacoes estudadas serao bitTorrent (compartlhamento de arquivos), banco de dados distribuidos (DHT) e o Skype (telefonia).
 
-### 2.6.1
+### 2.6.1 Distribuição de arquivos P2P
 
 O protocolo mais popular atualmente é o bitTorrent. Desenvolvido por Bram Cohen.
 
@@ -445,6 +445,22 @@ Aplicações P2P apresentam autoescalabilidade, pois pares passam a ser redistri
 A coleção de todos os pares que participam da distribuição de um arquivo é chamada de torrent. Os downloads são feitos em blocos de geralmente 256Kb. Enquanto um par vai fazendo download de blocos faz também o upload para outros pares.
 Cada torrent tem um nó de infraestrutura chamado rastreador. Quando um par chega em um torrent, ele se registra no rastreador e se mantém informando que ainda está no torrent. Assim, o rastreador possui registro de todos que estão participando.
 Os pares estabelecem conexoes TCP simultaneas. Os pares fazem solicitações de blocos que ainda não possuem. Os blocos a serem solicitados seguem a plítica de rarest first. Isso serve para que os blocos mais raros nao sejam perdidos. Para determinar a quais pedidos atender, o protocolo usa a troca inteligente, ou seja, os pares que possuem a maior taxa. Sao quatro pares revisados periodicamente, e sao chamados de unchoked. Tambem é escolhido um vizinho aleatorio chamado de optimistically unchoked. Pares com taxas de upload parecidas tendem a se encontrar. Isso se chama tit-fot-tat, essencial para a sobrevivencia do bitTorrent.
+
+### 2.6.2 Distributed Hash Tables (DHTs)
+
+Descrevendo uma abordagem elegante para um projeto de banco de dados P2P. O identificador de cada par é um número entre [0, 2^n-1]. Para transformar chaves não inteiras em inteiros utiliza-se uma função Hash, pública a todos os pares.
+
+#### DHT circular
+
+Nesta disposição, cada par rastreia apenas seu sucessor imediato (% 2^n). É um caso especial de rede sobreposta. Esta acima da rede onde se encontram os enlaces fisicos, roteadores e hospedeiros. Os enlaces sao virtuais. Para manter o numero de mensagens enviadas e o numero de pares rastreados controlado, é usada a rede sobreposta circular como fundação, mas utilizar "atalhos".
+
+#### Peer Churn
+
+Pares vem e vão. Cada par deve verificar periodicamente se seus vizinhos estão vivos.
+
+### 2.6.3 Estudo de caso: telefonia por Internet P2P com Skype
+
+Trata-se de uma aplicação P2P pois no núcleo, duplas de usuário (pares) comunicam-se entre si em tempo real. O Skype emprega P2P para localização de usuário e NAT traversal.
 
 
 
