@@ -485,3 +485,52 @@ Pares vem e vão. Cada par deve verificar periodicamente se seus vizinhos estão
 ### 2.6.3 Estudo de caso: telefonia por Internet P2P com Skype
 
 Trata-se de uma aplicação P2P pois no núcleo, duplas de usuário (pares) comunicam-se entre si em tempo real. O Skype emprega P2P para localização de usuário e NAT traversal.
+
+# Capiítulo 3 - Camda de transporte
+
+A principal função é ampliar o serviço de entrega da camada de rede entre dois sistemas finais para um serviço de entrega entre dois processos de camada de aplicaçao que rodam nos sistemas finais.
+
+## 3.1 Introdução e serviços de camada de transporte
+
+Um protocolo de camada de transporte fornece comunicação lõgica entre processos de aplicação em hospedeiros diferentes. Essa communicacao logica abstrai para a aplicacao como se os dois hospedeiros estivessem conectados diretamente. Na verdade existem diversos roteadores e tipos de enlaces conectando eles. 
+Está implementada em sistemas finais. Os pacotes são denominados segmentos.
+
+### 3.3.1 Relação entre as camadas de transporte e de rede
+
+A camada de rede oferece a comunicação lógica entre hospedeiros, ao contrario da de transporte que é entre processos. Oferece vários tipos de serviços de transporte. Dependente do funcionamento da camada de rede. Oferece criptografia mesmo que a camada de rede nao oferecça.
+
+### 3.1.2 Visão geral da camada de transporte da Internet
+
+Disponibiliza UDP e TCP, no caso da Internet. Ao criar os sockets escolhe um dos 2. O pacote aqui se chama segmento. Na camada de rede existe o IP que não é confiável. Cada hosperdeiro possui um endereço IP. A apmpliação da entrega hospedeiro a hospedeiro para processo a processo chama-se multiplexaocao/demultiplexacao da camada de transporte. Oferecem verificação de integridade. Esses dois são os únicos oferecidos pelo UDP. Jao o TCP oferece entrega confiável e controle de congestionamento. 
+
+## 3.2 Multiplexação e demultiplexação
+
+Um processo pode ter um ou mais sockets. Cada segmento possui um conjunto de campos para direcionamento à porta correta. Os segmentos contem nro de porta fonte e nro de porta destino. Cada nro é de 16 bit na faixa 0 a 65535. os nros entre 0 a 1023 são ditos bem conhecidos e sao restritos. HTTP usa o 80.
+
+#### Multiplexação e demultiplexação não orientados para conexão
+
+O socket UDP é identificado apenas pela porta fonte e IP da fonte.
+
+#### Multiplexacao e demultiplexacao orientadoas a conexao
+
+O socket UDP é identificado pela porta fonte e IP fonte e pela porta destino e IP destino.
+
+#### Servidores Web e TCP
+
+Servidores modernos utilizam threads. Um subprocesso leve.
+
+## 3.3 Transporte não orientado para conexão: UDP
+
+UDP adciona na mensagem os campos de porta fonte e do destino e dois outros campos.O UDP tem as seguintes vantagens:
+- Melhor controle no nível da aplicação sobre quais dados são enviados e quando.
+- Não há estabelecimento de conexao
+- Nao ha estafos de conexao
+- Pequena sobrecarga de cabeçalho de pacote.
+
+### 3.3.1 Etrutura do segmento UDP
+
+O cabeçalho possui 4 campos de 2 bytes cada. Os numeros das portas, o comprimento e a soma de verificação.
+
+### 3.3.2 Soma de verificação UDP
+
+Oferece verificação pois nem todos os campos de enlace oferecem verificação como o Ethernet. Pode haver erro tb no armazenamento no roteadors. A dele é fim a fim. Não faz nada para recuperar o erro. Pode descartar o segmento ou passalo para a camada de cima com um aviso.
