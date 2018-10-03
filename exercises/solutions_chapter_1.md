@@ -28,7 +28,7 @@ L/R1 + L/R2
 
 #### Questão 16 – Considere o envio de um pacote de uma máquina de origem a uma de destino por uma rota fixa. Relacione os componentes do atraso que formam o atraso fim a fim. Quais deles são constantes e quais são variáveis?
 
-Os componentes de atraso são os atrasos de processamento, atraso de propagação, atraso de transmissao e atraso de fila. Todos são variaveis, exceto o atraso de fila que varia conforme a carga da rede.
+Os componentes de atraso são os atrasos de processamento, atraso de propagação, atraso de transmissao e atraso de fila. Todos são constantes, exceto o atraso de fila que varia conforme a carga da rede.
 
 #### Questão 18 – Quanto tempo um pacote de 1.000 bytes leva para se propagar através de um enlace de 2.500 km de distância, com uma velocidade de propagação de 2,5 * 10^8 m/s e uma taxa de transmissão de 2 Mbps? Geralmente, quanto tempo um pacote de comprimento L leva para se propagar através de um enlace de distância d, velocidade de propagação s, e taxa de transmissão de R bps? Esse atraso depende do comprimento do pacote? Esse atraso depende da taxa de transmissão?
 
