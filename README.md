@@ -534,3 +534,33 @@ O cabeçalho possui 4 campos de 2 bytes cada. Os numeros das portas, o comprimen
 ### 3.3.2 Soma de verificação UDP
 
 Oferece verificação pois nem todos os campos de enlace oferecem verificação como o Ethernet. Pode haver erro tb no armazenamento no roteadors. A dele é fim a fim. Não faz nada para recuperar o erro. Pode descartar o segmento ou passalo para a camada de cima com um aviso.
+
+## 3.4 Princípios da transferência confiável de dados
+
+Os dados são entregues sem corrompimento e na ordem certa. A transferência bidirecional é chamada de full duplex.
+
+### 3.4.1 Construindo um protocolo de transferência confiável de dados
+
+#### Transferência confiável de dados sobre um canal perfeitamente confiável: rdt 1.0
+
+Implementação trivial, já que a camada subjacente oferece transferência confiável.
+
+#### Transferência confiável de dados por um canal com erros de bits: rdt 2.0
+
+O pacotes podem sofrer corrompimentos na vida real. Apos detectar o erro, pede a reenvio do pacote. São necessárias tres capacitacoes: Detecção de erros, Realimentação do destinatário e Retransmissao. O remetente não enviará novos dados até ter ctz que o destinatario recebeu o pacote em questao.  O problema é se o pacote com o ack e nack estiver corrompido. A solucao adotada é adicionar um campo com um numero de sequencia.
+
+#### Transferencia confiavel de dados por um canal com perda e com erros de bits: rdt 3.0
+
+Para perdas de pacotes é introduzido um mecanismo de contagem do tempo. Um valor de tempo provavel que a perda tenha acontecido e reenvia o pacote. Por isso pacotes duplicados sao introduzidos na rede. Chamado de protocolo bit alternante. A soma de tudo resulta em somas de verificação, numeros de sequencia, temporizadores e pacotes de reconhecimento.
+
+### 3.4.2 Protocolos de transferencia confiavel de dados com paralelismo
+
+Pare e espere apresenta desempenho ruim. A solução chama-se pipelining.
+
+### 3.4.3 Go-Back-N
+
+### 3.4.4 Repetição seletiva (SR)
+
+## 3.5 Transporte orientado para conexão: TCP
+
+O TCP é orientado a conexao pois os processos devem estabelecer um handshake antes de trocar dados. O estado da conexao reside inteiramente nos dois sistemas finais. Os roteadores enxergam datagrams e não conexões. 
