@@ -563,4 +563,26 @@ Pare e espere apresenta desempenho ruim. A solução chama-se pipelining.
 
 ## 3.5 Transporte orientado para conexão: TCP
 
-O TCP é orientado a conexao pois os processos devem estabelecer um handshake antes de trocar dados. O estado da conexao reside inteiramente nos dois sistemas finais. Os roteadores enxergam datagrams e não conexões. 
+O TCP é orientado a conexao pois os processos devem estabelecer um handshake antes de trocar dados. O estado da conexao reside inteiramente nos dois sistemas finais. Os roteadores enxergam datagrams e não conexões. O serviço oferecido é full-duplex. O TCP é sempre ponto a ponto, unico remetente e unico destinatario.
+
+### 3.5.1 A conexão TCP
+
+O establecimento ocorre pelo 3-way handshake. A camada de aplicação passa para a camada de transporte os dados a serem enviados e a camada de transporte armazena em um buffer de envio. Quando vai realizar o envio tira um pedaço dos dados que tem o tamanho maximo de segmento. Este ultimo é calculado usando a unidade maxima de transmissao. Valores comuns são 1460, 536 e 512 bytes. Quando chega ao destinos os dados sao colocados no buffer de recepção.
+
+### 3.5.2 Estrutura do segmento TCP
+
+Os campos de cabeçalho do TCP são: 
+- Nro de porta fonte
+- Nro de porta destinnho
+- Nro de sequencia
+- Nro de reconhecimento
+- Comprimento do cabeçalho
+- Janela de recepção
+- Campo de opções
+- Campo de flag
+
+#### Numeros de sequencia e numeros de reconhecimento
+
+O nro de sequencia para um segmento é o nro do primeiro byte do segmento. O numero de reconhecimento que o hospedeiro A atribui a seu segmento é o número de sequencia do proximo byte que ele estiver aguardando do hospedeiro B. TCP promove reconhecimentos cumulativos. Caso receba um pacote fora de ordem a tendencia é armazenar o pacote e aguardar os faltantes.
+
+#### Telnet: um estudo de caso para numeros de sequencia e numeros de reconhecimento.
