@@ -585,4 +585,26 @@ Os campos de cabeçalho do TCP são:
 
 O nro de sequencia para um segmento é o nro do primeiro byte do segmento. O numero de reconhecimento que o hospedeiro A atribui a seu segmento é o número de sequencia do proximo byte que ele estiver aguardando do hospedeiro B. TCP promove reconhecimentos cumulativos. Caso receba um pacote fora de ordem a tendencia é armazenar o pacote e aguardar os faltantes.
 
-#### Telnet: um estudo de caso para numeros de sequencia e numeros de reconhecimento.
+#### Telnet: um estudo de caso para numeros de sequencia e numeros de reconhecimento
+
+O Telnet ecoa o que o usuaria digita, entao, supondo numeros de sequencia iniciais 42 e 79, para cliente e servidor, o cliente envia (SEQ=42, ACK=79, dados='C'), o servidor envia (SEQ=79, ACK=43, dados='C') e o cliente novamente (SEQ=43, ACK=80). A carona que o reconhecimento do servidor para o cliente pega na mensagem que contem os dados é chamado 'piggyback'.
+
+### 3.5.3 Estimativa do tempo de viagem de ida e volta e de esgotamento de temporização
+
+Qual deve ser a duracao dos intervalos de controle? Deve ser maior que o RTT. Mas maior quanto?
+
+#### Estimativa do tempo de viagem de ida e volta
+
+Para cada segmento transmitido existe um SampleRTT e com esses o TCP calcula o EstimatedRTT. Existe tambem o DevRTT que calcula o desvio entre as amostras.
+
+#### Estabelecimento e gerenciamento da temporização de retransmissao
+
+Dadas as informações acima a formula recomendada é TimeoutInterval = EstimatedRTT + 4 x DevRTT
+
+### 3.5.4 Tranferencia confiavel de dados
+
+A secao descreverá um cenario onde o TCP utiliza somente controle de temporizadores e depois apresenta outra descrição que utiliza reconhecimentos duplicados tambem.
+
+#### Alguns cenarios interessantes
+
+#### Duplicacao di tempo de expiracao
