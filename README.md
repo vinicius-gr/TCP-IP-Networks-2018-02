@@ -608,3 +608,20 @@ A secao descreverá um cenario onde o TCP utiliza somente controle de temporizad
 #### Alguns cenarios interessantes
 
 #### Duplicacao di tempo de expiracao
+
+Neste caso o TCP retransmite o pacote e dobra o tempo do temporizador. Isso evita congestionar ainda mais a rede.
+
+#### Retransmissao rapida
+
+Caso o TCP receba um ACK duplicado isso e sinal de q houve perda, entao ja faz a retransmissao antes de esgotar o temporizador.
+
+#### Go-Back-N ou repeticao seletiva?
+
+Nenhum dos dois. O TCP usa reconhecimento seletivo eue e hibrido.
+
+### 3.5.5 Controle de fluxo
+
+Servico oferecido para compatibilizacao das velocidades. Diferente de controle de congestionamento. Para isso é usada a janela de recepção. E dinamica e o receptor vai informado seu tamanho para o remetente. O remetente deve manter os dados enviados conforme a formula: LastByteSent - LastByteAcked <= Janela. Caso a janela chegue a 0, o remetente continua enviando bytes para ter noçao de quando o receptor começar a esvaziar e o remetente nao ficar bloqueado.
+
+### 3.5.6 Gerenciamento da conexao TCP
+
