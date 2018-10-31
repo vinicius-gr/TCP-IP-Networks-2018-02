@@ -623,5 +623,3 @@ Nenhum dos dois. O TCP usa reconhecimento seletivo eue e hibrido.
 
 Servico oferecido para compatibilizacao das velocidades. Diferente de controle de congestionamento. Para isso é usada a janela de recepção. E dinamica e o receptor vai informado seu tamanho para o remetente. O remetente deve manter os dados enviados conforme a formula: LastByteSent - LastByteAcked <= Janela. Caso a janela chegue a 0, o remetente continua enviando bytes para ter noçao de quando o receptor começar a esvaziar e o remetente nao ficar bloqueado.
 
-### 3.5.6 Gerenciamento da conexao TCP
-
